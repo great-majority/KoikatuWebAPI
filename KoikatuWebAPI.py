@@ -70,20 +70,20 @@ class KoikatuWebAPI:
         return chara      
 
 def save_to_csv(filename):
-    r = KoikatuAPI.get_ranking()
+    r = KoikatuWebAPI.get_ranking()
     r.to_csv(filename, index=None)
 
 def save_image(filename, id, webaccess=False):
     if webaccess:
-        image = KoikatuAPI.get_image_from_web(id)
+        image = KoikatuWebAPI.get_image_from_web(id)
     else:
-        image = KoikatuAPI.get_image(id)
+        image = KoikatuWebAPI.get_image(id)
     with open(filename, "wb+") as f:
         f.write(image)
 
 # 指定した投稿者の概要を表示
 def print_stat_poster(handle_name):
-    r = KoikatuAPI.get_ranking()
+    r = KoikatuWebAPI.get_ranking()
     # 正しいランキング
     r["rank"] = r["download_num"].rank(ascending=False, method="min").astype("int32")
     poster = r[r["handle_name"]==handle_name].copy()
@@ -96,15 +96,8 @@ def print_stat_poster(handle_name):
 
 # 1, 10, 50, 100, 500, 1000, 5000, 10000位のダウンロード数を表示
 def print_download_num(rank=[0, 9, 49, 99, 499, 999, 4999, 9999]):
-    r = KoikatuAPI.get_ranking()
+    r = KoikatuWebAPI.get_ranking()
     r["rank"] = r["download_num"].rank(ascending=False, method="min").astype("int32")
     r["above"] = 1 - r["rank"] / len(r)
     r_s = r.sort_values("download_num", ascending=False)[["rank", "id", "download_num", "weekly_download_num", "above"]].iloc[rank]
     print(r_s)
-
-def main():
-    print_stat_poster("ILLUSION")
-    #print_download_num()
-
-if __name__=="__main__":
-    main()

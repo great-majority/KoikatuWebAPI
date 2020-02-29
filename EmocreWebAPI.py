@@ -166,7 +166,3 @@ class EmocreWebAPI:
         else:
             image = image_zip
         return image
-    
-if __name__ == "__main__":
-    data = EmocreAPI.user_list()
-    print(data)
