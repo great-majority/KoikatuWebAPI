@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kkwebapi"
-version = "0.1.0"
+version = "0.1.1"
 description = "Web API wrapper for Koikatu / EmotionCreators official uploader."
 authors = ["great-majority <yosaku.ideal+github@gmail.com>"]
 homepage = "https://github.com/great-majority/KoikatuWebAPI"
