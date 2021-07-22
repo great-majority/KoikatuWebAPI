@@ -1,8 +1,16 @@
 # KoikatuWebAPI
-Web API wrapper for Koikatu / EmotionCreators official uploader.
+A Web API wrapper for Koikatu / EmotionCreators official uploader.
+
+# Installation
+This module is available on [PyPI](https://pypi.org/project/kkwebapi/).
+```
+$ pip install kkwebapi
+```
+```
+$ python -m pip install kkwebapi
+```
 
 # Basic Usage
-
 ```python
 >>> from kkwebapi import KoikatuWebAPI
 >>> df = KoikatuWebAPI.get_ranking()
