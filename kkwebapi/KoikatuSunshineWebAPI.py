@@ -61,3 +61,9 @@ class KoikatuSunshineWebAPI:
             ("name", "str"),            # GUID
         ]
         return cls._from_tab_table(cls.users_url, datas, data_types)
+    
+    @classmethod
+    def fetch_chara(cls, index, add_count=0):
+        datas = {"mode": 4, "index": index, "add_count": add_count}
+        response = requests.post(cls.charas_url, datas, cls.headers).text.split("\t")
+        return base64.b64decode(response[1])
