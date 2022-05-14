@@ -1,6 +1,9 @@
 # KoikatuWebAPI
 A Web API wrapper for Koikatu / EmotionCreators official uploader.
 
+[![](https://img.shields.io/pypi/v/kkwebapi)](https://pypi.org/project/kkwebapi/)
+[![Downloads](https://pepy.tech/badge/kkwebapi)](https://pepy.tech/project/kkwebapi)
+
 # Installation
 This module is available on [PyPI](https://pypi.org/project/kkwebapi/).
 ```
